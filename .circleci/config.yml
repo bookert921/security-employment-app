@@ -23,7 +23,7 @@ aliases:
       name: Install dependencies
       command: |
         mkdir -p artifacts
-        npm install
+        yarn
   - &save-cache
     save_cache:
       paths:
@@ -41,8 +41,8 @@ aliases:
     run:
       name: Build Project
       command: |
-        npm install
-        npm run build
+        yarn
+        yarn build
         cd public
         zip ../public.zip -r * [^.]*
         echo "Build successful"
@@ -104,7 +104,7 @@ jobs:
           paths:
             - artifacts
 
-  deploy-to-aws-s3:
+  deploy-to-aws:
     executor: app-executor
     steps:
       - checkout
@@ -112,18 +112,11 @@ jobs:
           at: ./
       - *show-current-branch-name
       - *install-aws-cli
+      - *build-project
       - run:
-          name: Build Project
+          name: Deploy to AWS
           command: |
-            npm install
-            npm run build
-            cd public
-            zip ../public.zip -r * [^.]*
-            echo "Build successful"
-      - run:
-          name: Deploy to AWS s3
-          command: |
-            AWS_BUCKET_NAME=$(cat artifacts/sge_app_bucket_name.txt | sed 's/\"//g')
+            AWS_BUCKET_NAME=$(cat artifacts/sge_s3_bucket_name.txt | sed 's/\"//g')
             echo $AWS_BUCKET_NAME
             if [ "${CIRCLE_BRANCH}" == "main" ]
             then
@@ -164,7 +157,7 @@ workflows:
                 - develop
                 - staging
                 - main
-      - deploy-to-aws-s3:
+      - deploy-to-aws:
           requires:
             - terraform-plan-and-apply
           filters:

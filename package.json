@@ -1,0 +1,26 @@
+{
+  "name": "sge-frontend",
+  "private": true,
+  "description": "",
+  "version": "0.1.0",
+  "license": "",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "gatsby-plugin-s3 deploy --yes"
+  },
+  "dependencies": {
+    "gatsby": "^4.0.2",
+    "gatsby-plugin-s3": "^0.3.8",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  }
+}

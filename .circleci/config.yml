@@ -36,7 +36,7 @@ aliases:
         yarn
         yarn build
         cd public
-        zip ../public.zip -r * .[^.]*
+        zip ../public.zip -r * [^.]*
         echo "Build successful"
   - &install-aws-cli
     run:

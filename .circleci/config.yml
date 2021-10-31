@@ -144,10 +144,22 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - develop
+                - staging
+                - main
       - terraform-validate:
           requires:
             - build
+          filters:
+            branches:
+              only:
+                - develop
+                - staging
+                - main
       - terraform-plan-and-apply:
           requires:
             - terraform-validate

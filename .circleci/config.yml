@@ -3,7 +3,7 @@ executors:
   app-executor:
     docker:
       - image: circleci/node:14.17.5
-    working_directory: ~/repo
+    working_directory: ~/project
   terraform-executor:
     docker:
       - image: hashicorp/terraform:1.0.10
@@ -29,6 +29,23 @@ aliases:
       paths:
         - node_modules
       key: app-{{ checksum "package.json" }}
+  - &build-project
+    run:
+      name: Build Project
+      command: |
+        yarn
+        yarn build
+        cd public
+        zip ../public.zip -r * .[^.]*
+        echo "Build successful"
+  - &install-aws-cli
+    run:
+      name: Installing AWS CLI
+      working_directory: /
+      command: |
+        sudo apt-get -y -qq update
+        sudo apt-get install -y awscli
+        sudo apt-get install -y python3-pip python3-dev build-essential
 
 jobs:
   build:
@@ -99,8 +116,20 @@ jobs:
       - *install-aws-cli
       - *build-project
       - run:
-          name: Deploy to AWS S3 and Cloudfront
-          command: yarn build
+          name: Deploy to AWS
+          command: |
+            AWS_BUCKET_NAME=$(cat artifacts/sge_s3_bucket_name.txt | sed 's/\"//g')
+            echo $AWS_BUCKET_NAME
+            if [ "${CIRCLE_BRANCH}" == "main" ]
+            then
+              aws --region ${AWS_REGION} s3 sync ~/project/public s3://${AWS_BUCKET_NAME} --delete
+            elif [ "${CIRCLE_BRANCH}" == "staging" ]
+            then
+              aws --region ${AWS_REGION} s3 sync ~/project/public s3://${AWS_BUCKET_NAME} --delete
+            else
+              aws --region ${AWS_REGION} s3 sync ~/project/public s3://${AWS_BUCKET_NAME} --delete
+            fi
+
 
   terraform-destroy:
     executor: terraform-executor
@@ -140,15 +169,6 @@ workflows:
       - deploy-to-aws:
           requires:
             - terraform-plan-and-apply
-          filters:
-            branches:
-              only:
-                - develop
-                - staging
-                - main
-      - deploy-to-aws-cloudfront:
-          requires:
-            - deploy-to-aws
           filters:
             branches:
               only:

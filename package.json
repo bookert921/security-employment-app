@@ -11,12 +11,10 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby-plugin-s3 deploy --yes"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
     "gatsby": "^4.0.2",
-    "gatsby-plugin-s3": "^0.3.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

@@ -1,7 +1,7 @@
 import React from "react";
 import { CssBaseline, Container, Box } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import NavHeader from "./NavHeader";
+import NavHeader from "./Navigation/NavHeader";
 import "@fontsource/roboto";
 
 const theme = createTheme({

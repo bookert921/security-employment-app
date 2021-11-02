@@ -1,7 +1,7 @@
 import React from "react";
 import { CssBaseline, Container, Box } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import NavHeader from "./Navigation/NavHeader";
+import Nav from "./Navigation";
 import "@fontsource/roboto";
 
 const theme = createTheme({
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Box>
         <CssBaseline />
-        <NavHeader />
+        <Nav />
         <Container>{children}</Container>
       </Box>
     </ThemeProvider>

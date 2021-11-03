@@ -4,46 +4,41 @@ import { styled, Typography, Box } from "@mui/material";
 
 export const NavLink = styled((props) => (
   <Link activeClassName="active" {...props} />
-))`
-  color: #20b2aa;
-  text-decoration: none;
-  display: block;
-  text-align: center;
+))(({ theme }) => ({
+  textDecoration: "none",
+  display: "block",
+  textAlign: "center",
+  color: theme.palette.secondary.main,
 
-  &.nav-link {
-    text-transform: capitalize;
-    padding: 1rem 0;
-    border-top: 1px solid #cbd3e1;
-  }
-
-  @media screen and (min-width: 600px) {
-    &.nav-link {
-      padding: 0;
-      border-top: none;
-      margin-right: 1rem;
-    }
-  }
-
-  :hover {
-    &.mainTitle {
-      color: #20b2aa;
-      text-decoration: none;
-    }
-    color: #2e8b57;
-    text-decoration: underline;
-    text-underline-offset: 0.5em;
-    text-shadow: 0px 0px 3px #2e8b42;
-  }
-
-  &.active {
-    &.mainTitle {
-      color: #20b2aa;
-    }
-    color: #ffffff;
-    text-shadow: 0px 0px 5px #ffffff;
-  }
-`;
-
+  "&.nav-link": {
+    textTransform: "capitalize",
+    padding: "1rem 0",
+    borderTop: "1px solid #cbd3e1",
+  },
+  ["@media screen and (min-width: 600px)"]: {
+    "&.nav-link": {
+      padding: 0,
+      borderTop: "none",
+      marginRight: "1rem",
+    },
+  },
+  ["&:hover"]: {
+    "&.mainTitle": {
+      color: "#20b2aa",
+      textDecoration: "none",
+    },
+    textDecoration: "underline",
+    textUnderlineOffset: "0.5em",
+    textShadow: "0px 0px 3px #2e8b42",
+  },
+  ["&.active"]: {
+    "&.mainTitle": {
+      color: "#20b2aa",
+    },
+    color: "#ffffff",
+    textShadow: "0px 0px 5px #ffffff",
+  },
+}));
 const links = ["about", "services", "contact"];
 
 const NavLinks = ({ show }) => {

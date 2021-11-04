@@ -1,9 +1,9 @@
 import React from "react";
-import { CssBaseline, Container, Box } from "@mui/material";
+import { CssBaseline, Container } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import Nav from "./Navigation";
-import "@fontsource/roboto";
-import NavV2 from "./NavV2";
+import "@fontsource/lusitana";
+import "@fontsource/raleway";
+import Nav from "./navigation";
 
 let theme = createTheme({
   palette: {
@@ -12,16 +12,22 @@ let theme = createTheme({
     background: { default: "#F4F6F7" },
   },
   typography: {
-    body1: { fontFamily: "sans-serif", color: "#00334E", fontWeight: "bold" },
+    h1: { fontFamily: "Lusitana", fontWeight: "bold" },
+    h2: { fontFamily: "Lusitana", fontWeight: "bold" },
+    h5: { fontFamily: "Lusitana", fontWeight: "bold" },
+    h4: { fontFamily: "Lusitana", fontWeight: "bold" },
+    h3: { fontFamily: "Lusitana", fontWeight: "bold" },
+    h6: { fontFamily: "Lusitana", fontWeight: "bold" },
+    body1: { color: "#00334E", fontWeight: "bold", fontFamily: "Raleway" },
   },
 });
 
-theme = createTheme({
+theme = createTheme(theme, {
   components: {
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: theme.palette.primary.dark,
+          backgroundColor: theme.palette.primary.main,
         },
       },
     },
@@ -31,12 +37,9 @@ theme = createTheme({
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Box>
-        <CssBaseline />
-        {/* <Nav /> */}
-        <NavV2 />
-        <Container>{children}</Container>
-      </Box>
+      <CssBaseline />
+      <Nav />
+      <Container>{children}</Container>
     </ThemeProvider>
   );
 };

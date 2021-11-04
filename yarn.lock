@@ -1177,6 +1177,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/lusitana@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/lusitana/-/lusitana-4.5.0.tgz#931dbf583302264282651d5c59a8b4eb29832715"
+  integrity sha512-fPqmYu+N1jdVfMuXXCRthKMqmC0J5he5MO7sNVkJ8zykWEBSoqLrFHFKZ9evFouq9bsF7o1niI6YQ5fLeqS16Q==
+
+"@fontsource/raleway@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/raleway/-/raleway-4.5.0.tgz#d5c464abe655d2e2cb134c503db455b7af6c03a6"
+  integrity sha512-Rzj90wbZQnNzazqzoiu5HzMEMdqMJLUVFOo699sinTXrZRm1aB5iX2HTiK2VlPnH4M6u8yYnJ7CebOyamfWlqw==
+
 "@fontsource/roboto@^4.5.1":
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.1.tgz#63f7b783f755d8f6727eb60198627e7e1be3ac20"

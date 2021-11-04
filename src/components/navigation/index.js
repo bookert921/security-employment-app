@@ -58,7 +58,7 @@ function Header() {
   ));
 
   return (
-    <AppBar>
+    <AppBar position="sticky">
       <Toolbar
         sx={{
           width: "100%",

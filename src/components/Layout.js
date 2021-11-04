@@ -1,5 +1,5 @@
 import React from "react";
-import { CssBaseline, Container } from "@mui/material";
+import { CssBaseline, Container, responsiveFontSizes } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "@fontsource/lusitana";
 import "@fontsource/raleway";
@@ -33,6 +33,8 @@ theme = createTheme(theme, {
     },
   },
 });
+
+theme = responsiveFontSizes(theme);
 
 const Layout = ({ children }) => {
   return (

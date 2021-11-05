@@ -1,21 +1,21 @@
 import React from "react";
 import {
-  Box,
   useTheme,
   Typography,
   useMediaQuery,
   styled,
   Button,
+  Grid,
+  Box,
 } from "@mui/material";
 import { StaticImage } from "gatsby-plugin-image";
 
 import HeroContent from "./HeroContent";
 
-const HeroMain = styled(Box)(({ theme, screen }) => ({
-  height: "60vh",
+const HeroMain = styled(Box)(() => ({
+  height: "70vh",
   position: "relative",
-  width: "90%",
-  margin: screen ? theme.spacing(10) + " auto" : theme.spacing(5) + " auto",
+  marginBottom: "3rem",
 }));
 
 const HeroContainer = styled(Box)(() => ({
@@ -32,27 +32,46 @@ function Hero({ heroText }) {
   const theme = useTheme();
   const smallerScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const renderHeroText = heroText.map((text, index) => (
-    <Box
+    <Grid
+      container
       sx={{
         display: "flex",
-        flexDirection: "row",
+        flexDirection: smallerScreen ? "column" : "row",
         alignItems: "center",
         justifyContent: "center",
+        textAlign: "center",
       }}
       key={index}
     >
-      <StaticImage
-        src="../../assets/images/checkbox.svg"
-        alt="checkbox"
-        layout="constrained"
-        placeholder="tracedSVG"
-        height={50}
-        width={50}
-      />
-      <Typography color="primary.contrastText" ml={2}>
-        {text}
-      </Typography>
-    </Box>
+      <Grid
+        item
+        xs={4}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <StaticImage
+          src="../../assets/images/checkbox.svg"
+          alt="checkbox"
+          layout="fixed"
+          placeholder="tracedSVG"
+          height={50}
+          width={50}
+        />
+      </Grid>
+      <Grid
+        item
+        xs={8}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Typography color="primary.contrastText">{text}</Typography>
+      </Grid>
+    </Grid>
   ));
   return (
     <HeroMain screen={smallerScreen}>

@@ -3,7 +3,9 @@ import { CssBaseline, Container, responsiveFontSizes } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "@fontsource/lusitana";
 import "@fontsource/raleway";
+import Page from "./Page";
 import Nav from "./navigation";
+import Footer from "./Footer";
 
 let theme = createTheme({
   palette: {
@@ -41,7 +43,10 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Nav />
-      <Container>{children}</Container>
+      <Container>
+        <Page>{children}</Page>
+      </Container>
+      <Footer />
     </ThemeProvider>
   );
 };

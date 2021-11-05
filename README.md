@@ -1,6 +1,4 @@
-# Seattle Security Guard App
-
-## Color Schema
+# Seattle Security Guard App Colors
 
 #0077B6 - 0 119 182 - Star Command Blue (Main)
 

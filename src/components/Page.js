@@ -5,8 +5,8 @@ const PageComponent = ({ children }) => {
   return (
     <Box
       sx={{
-        width: "90vw",
-        maxWidth: "1120px",
+        position: "relative",
+        minHeight: "100vh",
         margin: "0 auto",
       }}
     >

@@ -8,8 +8,8 @@ export const NavLink = styled(({ children, screen, open, ...otherProps }) => (
       className={open ? "animate-text" : ""}
       sx={{
         opacity: { xs: 0, sm: "initial" },
-        transform: { xs: "translateX(1000px)", sm: "none" },
-        transition: "0.5s ease-in-out all",
+        transform: { xs: "translateX(200px)", sm: "none" },
+        transition: ".5s ease-in-out all",
         "&.animate-text": {
           opacity: 1,
           transform: "translateX(0)",

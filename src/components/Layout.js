@@ -1,9 +1,11 @@
 import React from "react";
-import { CssBaseline, Container } from "@mui/material";
+import { CssBaseline, Container, responsiveFontSizes } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "@fontsource/lusitana";
 import "@fontsource/raleway";
+import Page from "./Page";
 import Nav from "./navigation";
+import Footer from "./Footer";
 
 let theme = createTheme({
   palette: {
@@ -34,12 +36,17 @@ theme = createTheme(theme, {
   },
 });
 
+theme = responsiveFontSizes(theme);
+
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Nav />
-      <Container>{children}</Container>
+      <Container>
+        <Page>{children}</Page>
+      </Container>
+      <Footer />
     </ThemeProvider>
   );
 };

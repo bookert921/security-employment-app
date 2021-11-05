@@ -42,7 +42,7 @@ function Hero({ heroText }) {
       key={index}
     >
       <StaticImage
-        src="../assets/images/checkbox.svg"
+        src="../../assets/images/checkbox.svg"
         alt="checkbox"
         layout="constrained"
         placeholder="tracedSVG"
@@ -57,7 +57,7 @@ function Hero({ heroText }) {
   return (
     <HeroMain screen={smallerScreen}>
       <StaticImage
-        src="../assets/images/secure.jpg"
+        src="../../assets/images/secure.jpg"
         alt="security"
         layout="constrained"
         placeholder="tracedSVG"

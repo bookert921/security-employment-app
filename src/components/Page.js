@@ -8,7 +8,6 @@ const PageComponent = ({ children }) => {
         position: "relative",
         minHeight: "100vh",
         paddingBottom: "7rem",
-        marginTop: "5rem",
       }}
     >
       {children}

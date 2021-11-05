@@ -44,7 +44,7 @@ const Layout = ({ children }) => {
       <CssBaseline />
       <Page>
         <Nav />
-        <Container sx={{ paddingBottom: "5rem" }}>{children}</Container>
+        <Container>{children}</Container>
         <Footer />
       </Page>
     </ThemeProvider>

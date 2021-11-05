@@ -10,7 +10,7 @@ function Footer() {
         bottom: 0,
         width: "100%",
         textAlign: "center",
-        height: "5rem",
+        height: "7rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

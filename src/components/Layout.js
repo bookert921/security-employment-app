@@ -42,11 +42,11 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Nav />
-      <Container>
-        <Page>{children}</Page>
-      </Container>
-      <Footer />
+      <Page>
+        <Nav />
+        <Container sx={{ paddingBottom: "5rem" }}>{children}</Container>
+        <Footer />
+      </Page>
     </ThemeProvider>
   );
 };

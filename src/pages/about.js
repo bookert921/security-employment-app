@@ -72,7 +72,16 @@ function About() {
             yr occupy venmo lomo pork belly.
           </Paragraph>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <StaticImage
             src="../assets/images/community.jpg"
             alt="secure community"

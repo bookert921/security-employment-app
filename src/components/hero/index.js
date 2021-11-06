@@ -11,6 +11,7 @@ import {
 import { StaticImage } from "gatsby-plugin-image";
 
 import HeroContent from "./HeroContent";
+import { Link } from "gatsby";
 
 const HeroMain = styled(Box)(() => ({
   height: "70vh",
@@ -86,9 +87,11 @@ function Hero({ heroText }) {
         <HeroContent
           smallerScreen={smallerScreen}
           componentLeft={
-            <Button variant="contained" size="large" color="secondary">
-              <Typography variant="h5">Get Quote</Typography>
-            </Button>
+            <Link to="/contact" style={{ textDecoration: "none" }}>
+              <Button variant="contained" size="large" color="secondary">
+                <Typography variant="h5">Get Quote</Typography>
+              </Button>
+            </Link>
           }
           componentRight={renderHeroText}
         />

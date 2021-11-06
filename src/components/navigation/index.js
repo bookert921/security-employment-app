@@ -18,7 +18,7 @@ import { Box } from "@mui/system";
 const TitleLink = styled(({ logo, children, ...otherProps }) => (
   <Link {...otherProps}>
     {logo}
-    <Typography variant="h4" sx={{ ml: 2 }}>
+    <Typography variant="h4" sx={{ ml: 2 }} fontWeight="bold">
       {children}
     </Typography>
   </Link>
@@ -48,7 +48,7 @@ const NavDropdown = styled(({ openMenu, setOpenMenu, ...props }) => (
 
 const links = ["about", "services", "contact"];
 
-function Header() {
+const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const theme = useTheme();
   const smallerScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -73,6 +73,7 @@ function Header() {
             width: "100%",
             flexDirection: smallerScreen ? "column" : "row",
             justifyContent: !smallerScreen && "space-between",
+            padding: "1rem",
           }}
         >
           <Box sx={{ marginTop: smallerScreen ? "10px" : 0 }}>
@@ -100,9 +101,11 @@ function Header() {
           <NavMenu openMenu={openMenu}>{renderLinks}</NavMenu>
         </Toolbar>
       </AppBar>
-      <Toolbar sx={{ height: smallerScreen ? "130px" : "65px" }} />
+      <Toolbar
+        sx={{ height: smallerScreen ? "125px" : "65px", padding: "1rem" }}
+      />
     </React.Fragment>
   );
-}
+};
 
 export default Header;

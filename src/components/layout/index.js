@@ -3,24 +3,26 @@ import { CssBaseline, Container, responsiveFontSizes } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "@fontsource/lusitana";
 import "@fontsource/raleway";
+
 import Page from "./Page";
-import Nav from "./navigation";
+import Nav from "../navigation";
 import Footer from "./Footer";
 
 let theme = createTheme({
   palette: {
-    primary: { main: "#0077B6", light: "#3D9ACB" },
-    secondary: { main: "#B63E00" },
+    primary: { main: "#4682B4", light: "#A4C4DE " },
+    secondary: { main: "#B44655", light: "#ADB446" },
     background: { default: "#F4F6F7" },
   },
   typography: {
-    h1: { fontFamily: "Lusitana", fontWeight: "bold" },
-    h2: { fontFamily: "Lusitana", fontWeight: "bold" },
-    h5: { fontFamily: "Lusitana", fontWeight: "bold" },
-    h4: { fontFamily: "Lusitana", fontWeight: "bold" },
-    h3: { fontFamily: "Lusitana", fontWeight: "bold" },
-    h6: { fontFamily: "Lusitana", fontWeight: "bold" },
-    body1: { color: "#00334E", fontWeight: "bold", fontFamily: "Raleway" },
+    h1: { fontFamily: "Raleway" },
+    h2: { fontFamily: "Raleway" },
+    h5: { fontFamily: "Raleway" },
+    h4: { fontFamily: "Raleway" },
+    h3: { fontFamily: "Raleway" },
+    h6: { fontFamily: "Raleway" },
+    body1: { color: "#00334E", fontWeight: "bold", fontFamily: "Lusitana" },
+    body2: { color: "#00334E", fontFamily: "Lusitana" },
   },
 });
 
@@ -44,7 +46,7 @@ const Layout = ({ children }) => {
       <CssBaseline />
       <Page>
         <Nav />
-        <Container>{children}</Container>
+        <Container sx={{ marginTop: "2rem" }}>{children}</Container>
         <Footer />
       </Page>
     </ThemeProvider>
